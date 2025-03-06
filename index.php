@@ -13,25 +13,12 @@ define('URL', 'http://localhost/php-mvc');
 $obRouter = new Router(URL);
 $obRequest = new Request();
 
-/**
- * A partir do momento em que foi instânciado o objeto:
- * $url = http://localhost/php-mvc
- * 
- * Instância de Request:
- * queryParams: se houver
- * postVars: se houver
- * headers: função PHP para capturar todos os headers recebidos
- * httpMethod: padrão GET
- * uri: /php-mvc/
- * 
- */
-
-
-
-// // ROTA HOME
+// ROTA HOME
 $obRouter->get('/', [
     function(){
         return new Response(200, Home::getHome());
     }
-]); 
+]);
+
+$obRouter->run();
 
